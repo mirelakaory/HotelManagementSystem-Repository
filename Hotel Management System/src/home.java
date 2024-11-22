@@ -160,7 +160,7 @@ public class home extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 250, 530));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/loginbackground.jpg"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

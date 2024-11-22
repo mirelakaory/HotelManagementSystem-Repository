@@ -177,10 +177,10 @@ public class homeGerente extends javax.swing.JFrame {
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCheckin, btnCheckout, btnFuncionarios, btnHospedes, btnQuartos, btnReservas, btnSair});
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 250, 610));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 250, 610));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/loginbackground.jpg"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 700));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

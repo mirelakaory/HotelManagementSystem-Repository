@@ -3,6 +3,10 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 import java.sql.*;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import project.*;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,16 +19,29 @@ import project.*;
  * @author mirela
  */
 public class Checkin extends javax.swing.JFrame {
+       //getters
+    public JButton getCheckInBtn()
+    {
+        return CheckInBtn;
+    }
+    public JTextField getjTextFieldCPF()
+    {
+        return jTextCPF;
+    }
+  
+    public JComboBox<String> getJComboBoxFCama(){
+    return jComboBoxCama;
+    }
 
     
     public Checkin() {
         
         initComponents();
-        jTextFieldData.setEditable(false);
-        jTextFieldPreco.setEditable(false);
+        jTextData.setEditable(false);
+        jTextPreco.setEditable(false);
         SimpleDateFormat myFormat = new SimpleDateFormat("yyyy/MM/dd");
         Calendar cal = Calendar.getInstance();
-        jTextFieldData.setText(myFormat.format(cal.getTime()));
+        jTextData.setText(myFormat.format(cal.getTime()));
     }
     
     String cama;
@@ -36,7 +53,7 @@ public class Checkin extends javax.swing.JFrame {
     public void detalhesQuarto()
     {
         jComboBoxNumQuarto.removeAllItems();
-        jTextFieldPreco.setText("");
+        jTextPreco.setText("");
         cama=(String)jComboBoxCama.getSelectedItem();
         tipoQuarto=(String)jComboBoxTipoQuarto.getSelectedItem();
         numPessoa=(String)jComboBoxNumPessoa.getSelectedItem();
@@ -73,7 +90,7 @@ public class Checkin extends javax.swing.JFrame {
         jLabelTipoQuarto = new javax.swing.JLabel();
         jLabelNumQuarto = new javax.swing.JLabel();
         jLabelPreco = new javax.swing.JLabel();
-        jTextFieldPreco = new javax.swing.JTextField();
+        jTextPreco = new javax.swing.JTextField();
         jComboBoxCama = new javax.swing.JComboBox<>();
         jComboBoxTipoQuarto = new javax.swing.JComboBox<>();
         jComboBoxNumQuarto = new javax.swing.JComboBox<>();
@@ -81,27 +98,27 @@ public class Checkin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextFieldCPF = new javax.swing.JTextField();
+        jTextCPF = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextFieldNome = new javax.swing.JTextField();
+        jTextNome = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextFieldEndereco = new javax.swing.JTextField();
+        jTextEndereco = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextFieldTel = new javax.swing.JTextField();
+        jTextTel = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextFieldEmail = new javax.swing.JTextField();
+        jTextEmail = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextFieldNascimento = new javax.swing.JTextField();
+        jTextNascimento = new javax.swing.JTextField();
         BuscarBtn = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        jTextFieldData = new javax.swing.JTextField();
+        jTextData = new javax.swing.JTextField();
         LimparBtn = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jComboBoxNumPessoa = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(50, 110));
+        setLocation(new java.awt.Point(70, 120));
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -140,8 +157,8 @@ public class Checkin extends javax.swing.JFrame {
         jLabelPreco.setText("Preço");
         getContentPane().add(jLabelPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 440, -1, -1));
 
-        jTextFieldPreco.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextFieldPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 460, 330, -1));
+        jTextPreco.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 460, 330, -1));
 
         jComboBoxCama.setBackground(new java.awt.Color(239, 239, 239));
         jComboBoxCama.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
@@ -197,48 +214,53 @@ public class Checkin extends javax.swing.JFrame {
         jLabel4.setText("CPF");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 167, -1, -1));
 
-        jTextFieldCPF.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextFieldCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 198, 391, 30));
+        jTextCPF.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jTextCPF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextCPFActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 198, 391, 30));
 
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Nome");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 233, -1, -1));
 
-        jTextFieldNome.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextFieldNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 260, 391, -1));
+        jTextNome.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 260, 391, -1));
 
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Endereço");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 297, -1, -1));
 
-        jTextFieldEndereco.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextFieldEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 324, 391, -1));
+        jTextEndereco.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 324, 391, -1));
 
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Telefone");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 361, -1, -1));
 
-        jTextFieldTel.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextFieldTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 388, 391, -1));
+        jTextTel.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 388, 391, -1));
 
         jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("E-mail");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 424, -1, -1));
 
-        jTextFieldEmail.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 451, 391, -1));
+        jTextEmail.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 451, 391, -1));
 
         jLabel9.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Data de Nascimento");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 492, -1, -1));
 
-        jTextFieldNascimento.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextFieldNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 526, 391, -1));
+        jTextNascimento.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 526, 391, -1));
 
         BuscarBtn.setBackground(new java.awt.Color(204, 204, 204));
         BuscarBtn.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
@@ -255,8 +277,13 @@ public class Checkin extends javax.swing.JFrame {
         jLabel10.setText("Data Check-In (Hoje)");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 500, -1, -1));
 
-        jTextFieldData.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextFieldData, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 530, 330, -1));
+        jTextData.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jTextData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextDataActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextData, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 530, 330, -1));
 
         LimparBtn.setBackground(new java.awt.Color(204, 204, 204));
         LimparBtn.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
@@ -322,7 +349,7 @@ public class Checkin extends javax.swing.JFrame {
             ResultSet rs= Select.getData("select * from quarto where numQuarto = '"+numQuarto+"'");
             while (rs.next())
             {
-                jTextFieldPreco.setText(rs.getString(5));
+                jTextPreco.setText(rs.getString(5));
             }
         }
         catch (Exception e)
@@ -333,7 +360,7 @@ public class Checkin extends javax.swing.JFrame {
 
     private void BuscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarBtnActionPerformed
        int check=0;
-       cpf=jTextFieldCPF.getText();
+       cpf=jTextCPF.getText();
        
        if(cpf.equals(""))
        {
@@ -348,18 +375,18 @@ public class Checkin extends javax.swing.JFrame {
                if (rs.next())
                {
                    check=1;
-                   jTextFieldNome.setEditable(false);
-                   jTextFieldEndereco.setEditable(false);
-                   jTextFieldTel.setEditable(false);
-                   jTextFieldEmail.setEditable(false);
-                   jTextFieldNascimento.setEditable(false);
-                   jTextFieldCPF.setEditable(false);
+                   jTextNome.setEditable(false);
+                   jTextEndereco.setEditable(false);
+                   jTextTel.setEditable(false);
+                   jTextEmail.setEditable(false);
+                   jTextNascimento.setEditable(false);
+                   jTextCPF.setEditable(false);
                    
-                   jTextFieldNome.setText(rs.getString(1));
-                   jTextFieldEndereco.setText(rs.getString(2));
-                   jTextFieldTel.setText(rs.getString(3));
-                   jTextFieldEmail.setText(rs.getString(5));
-                   jTextFieldNascimento.setText(rs.getString(6));
+                   jTextNome.setText(rs.getString(1));
+                   jTextEndereco.setText(rs.getString(2));
+                   jTextTel.setText(rs.getString(3));
+                   jTextEmail.setText(rs.getString(5));
+                   jTextNascimento.setText(rs.getString(6));
                    
                }
            }
@@ -376,18 +403,18 @@ public class Checkin extends javax.swing.JFrame {
     private void CheckInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckInBtnActionPerformed
        
         
-        String cpfHospede= jTextFieldCPF.getText();
-        String nomeHospede= jTextFieldNome.getText();
-        String enderecoHospede= jTextFieldEndereco.getText();
-        String telHospede= jTextFieldTel.getText();
-        String emailHospede= jTextFieldEmail.getText();
-        String nascimentoHospede = jTextFieldNascimento.getText();
+        String cpfHospede= jTextCPF.getText();
+        String nomeHospede= jTextNome.getText();
+        String enderecoHospede= jTextEndereco.getText();
+        String telHospede= jTextTel.getText();
+        String emailHospede= jTextEmail.getText();
+        String nascimentoHospede = jTextNascimento.getText();
         String cama= (String)jComboBoxCama.getSelectedItem();
         String tipoQuarto= (String)jComboBoxTipoQuarto.getSelectedItem();
         String numPessoa=(String)jComboBoxNumPessoa.getSelectedItem();
         String numQuarto= (String)jComboBoxNumQuarto.getSelectedItem();
-        String preco= jTextFieldPreco.getText();
-        String checkin = jTextFieldData.getText();
+        String preco= jTextPreco.getText();
+        String checkin = jTextData.getText();
         String Query = "select max(id) from hospedes";
        
         try
@@ -420,6 +447,14 @@ public class Checkin extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_CheckInBtnActionPerformed
+
+    private void jTextCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCPFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextCPFActionPerformed
+
+    private void jTextDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextDataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextDataActionPerformed
 
     /**
      * @param args the command line arguments
@@ -481,13 +516,13 @@ public class Checkin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelNumQuarto;
     private javax.swing.JLabel jLabelPreco;
     private javax.swing.JLabel jLabelTipoQuarto;
-    private javax.swing.JTextField jTextFieldCPF;
-    private javax.swing.JTextField jTextFieldData;
-    private javax.swing.JTextField jTextFieldEmail;
-    private javax.swing.JTextField jTextFieldEndereco;
-    private javax.swing.JTextField jTextFieldNascimento;
-    private javax.swing.JTextField jTextFieldNome;
-    private javax.swing.JTextField jTextFieldPreco;
-    private javax.swing.JTextField jTextFieldTel;
+    private javax.swing.JTextField jTextCPF;
+    private javax.swing.JTextField jTextData;
+    private javax.swing.JTextField jTextEmail;
+    private javax.swing.JTextField jTextEndereco;
+    private javax.swing.JTextField jTextNascimento;
+    private javax.swing.JTextField jTextNome;
+    private javax.swing.JTextField jTextPreco;
+    private javax.swing.JTextField jTextTel;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,7 +2,9 @@
 import project.InsertUpdateDelete;
 import project.*;
 import java.sql.*;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -16,12 +18,19 @@ import javax.swing.table.DefaultTableModel;
  * @author mirela
  */
 public class hospedes extends javax.swing.JFrame {
+    public JButton getBtnRegistrar()
+    {
+        return btnRegistrar;
+    }
+    public JTextField getjJTextNome()
+    {
+        return jTextNome;
+    }
 
-    /**
-     * Creates new form hospedes
-     */
     public hospedes() {
-        initComponents();
+        
+        
+    initComponents();
         
     }
      String Query;
@@ -37,25 +46,25 @@ public class hospedes extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         fecharBtn = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField();
+        jTextCPF = new javax.swing.JTextField();
         jLabelEmail = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        jTextEmail = new javax.swing.JTextField();
         jLabelNascimento = new javax.swing.JLabel();
         jLabelNome = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        jTextNascimento = new javax.swing.JTextField();
+        jTextNome = new javax.swing.JTextField();
+        jTextTel = new javax.swing.JTextField();
         jLabelEndereco = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTextEndereco = new javax.swing.JTextField();
         jLabelTelefone = new javax.swing.JLabel();
         jLabelCpf = new javax.swing.JLabel();
-        registrarBtn = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(50, 118));
+        setLocation(new java.awt.Point(70, 120));
         setUndecorated(true);
         setResizable(false);
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -79,16 +88,16 @@ public class hospedes extends javax.swing.JFrame {
         });
         getContentPane().add(fecharBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 10, 30, 30));
 
-        jTextField4.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 390, 360, -1));
+        jTextCPF.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 390, 360, -1));
 
         jLabelEmail.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabelEmail.setForeground(new java.awt.Color(255, 255, 255));
         jLabelEmail.setText("E-mail");
         getContentPane().add(jLabelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 430, -1, -1));
 
-        jTextField5.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 450, 360, -1));
+        jTextEmail.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 450, 360, -1));
 
         jLabelNascimento.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabelNascimento.setForeground(new java.awt.Color(255, 255, 255));
@@ -100,27 +109,27 @@ public class hospedes extends javax.swing.JFrame {
         jLabelNome.setText("Nome");
         getContentPane().add(jLabelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 140, -1, -1));
 
-        jTextField6.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 520, 360, -1));
+        jTextNascimento.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 520, 360, -1));
 
-        jTextField1.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextNome.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jTextNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextNomeActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 170, 360, -1));
+        getContentPane().add(jTextNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 170, 360, -1));
 
-        jTextField3.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 310, 360, -1));
+        jTextTel.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 310, 360, -1));
 
         jLabelEndereco.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabelEndereco.setForeground(new java.awt.Color(255, 255, 255));
         jLabelEndereco.setText("Endereço");
         getContentPane().add(jLabelEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 210, -1, -1));
 
-        jTextField2.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 240, 360, -1));
+        jTextEndereco.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 240, 360, -1));
 
         jLabelTelefone.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabelTelefone.setForeground(new java.awt.Color(255, 255, 255));
@@ -132,14 +141,14 @@ public class hospedes extends javax.swing.JFrame {
         jLabelCpf.setText("CPF");
         getContentPane().add(jLabelCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 360, -1, -1));
 
-        registrarBtn.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
-        registrarBtn.setText("Registrar ");
-        registrarBtn.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrar.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
+        btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registrarBtnActionPerformed(evt);
+                btnRegistrarActionPerformed(evt);
             }
         });
-        getContentPane().add(registrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 580, 144, 50));
+        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 580, 144, 50));
 
         jTable1.setBackground(new java.awt.Color(239, 239, 239));
         jTable1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.lightGray, null, null));
@@ -166,13 +175,13 @@ public class hospedes extends javax.swing.JFrame {
     setVisible(false);
     }//GEN-LAST:event_fecharBtnActionPerformed
 
-    private void registrarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarBtnActionPerformed
-     String nome=jTextField1.getText();
-     String endereco =jTextField2.getText();
-     String telefone =jTextField3.getText();
-     String cpf =jTextField4.getText();
-     String email=jTextField5.getText();
-     String nascimento= jTextField6.getText();
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+     String nome=jTextNome.getText();
+     String endereco =jTextEndereco.getText();
+     String telefone =jTextTel.getText();
+     String cpf =jTextCPF.getText();
+     String email=jTextEmail.getText();
+     String nascimento= jTextNascimento.getText();
     
      try{
          
@@ -194,7 +203,7 @@ public class hospedes extends javax.swing.JFrame {
     { 
         JOptionPane.showMessageDialog(null, e);
     }
-    }//GEN-LAST:event_registrarBtnActionPerformed
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
     ResultSet rs = Select.getData("select * from hospedes");
@@ -214,9 +223,9 @@ public class hospedes extends javax.swing.JFrame {
     }     
     }//GEN-LAST:event_formComponentShown
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTextNomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,6 +263,7 @@ public class hospedes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton fecharBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -265,12 +275,11 @@ public class hospedes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTelefone;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JButton registrarBtn;
+    private javax.swing.JTextField jTextCPF;
+    private javax.swing.JTextField jTextEmail;
+    private javax.swing.JTextField jTextEndereco;
+    private javax.swing.JTextField jTextNascimento;
+    private javax.swing.JTextField jTextNome;
+    private javax.swing.JTextField jTextTel;
     // End of variables declaration//GEN-END:variables
 }

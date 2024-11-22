@@ -1,6 +1,10 @@
 import project.*;
 import java.sql.*;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
        
 /**
@@ -8,6 +12,21 @@ import javax.swing.table.DefaultTableModel;
  * @author mirela
  */
 public class quartos extends javax.swing.JFrame {
+    
+    //getters
+    public JButton getaddQuartoBtn()
+    {
+        return addQuartoBtn;
+    }
+    
+    public JTextField getjJTextNumQuarto()
+    {
+        return jTextNumQuarto;
+    }
+
+    public JComboBox<String> getJComboTipoQuarto(){
+        return jComboTipoQuarto;
+    }
 
     /**
      * Creates new form quartos
@@ -30,21 +49,21 @@ public class quartos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextNumQuarto = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboTipoQuarto = new javax.swing.JComboBox<>();
+        jComboCama = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTextPreco = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         addQuartoBtn = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboNumPessoa = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(50, 118));
+        setLocation(new java.awt.Point(70, 120));
         setUndecorated(true);
         setResizable(false);
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -88,36 +107,36 @@ public class quartos extends javax.swing.JFrame {
         jLabel2.setText("Número do Quarto");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 150, -1, -1));
 
-        jTextField1.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 180, 310, -1));
+        jTextNumQuarto.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextNumQuarto, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 180, 310, -1));
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Tipo do Quarto");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 217, -1, -1));
 
-        jComboBox1.setBackground(new java.awt.Color(239, 239, 239));
-        jComboBox1.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fumante", "Não-fumante" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jComboTipoQuarto.setBackground(new java.awt.Color(239, 239, 239));
+        jComboTipoQuarto.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jComboTipoQuarto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fumante", "Não-fumante" }));
+        jComboTipoQuarto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jComboTipoQuartoActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 250, 320, -1));
+        getContentPane().add(jComboTipoQuarto, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 250, 320, -1));
 
-        jComboBox2.setBackground(new java.awt.Color(239, 239, 239));
-        jComboBox2.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro", "Casal", "2 camas solteiro", "2 camas solteiro e 1 cama de casal" }));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 320, 320, -1));
+        jComboCama.setBackground(new java.awt.Color(239, 239, 239));
+        jComboCama.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jComboCama.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solteiro", "Casal", "2 camas solteiro", "2 camas solteiro e 1 cama de casal" }));
+        getContentPane().add(jComboCama, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 320, 320, -1));
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Preço");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 440, -1, -1));
 
-        jTextField2.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 470, 310, -1));
+        jTextPreco.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 470, 310, -1));
 
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -139,10 +158,10 @@ public class quartos extends javax.swing.JFrame {
         jLabel7.setText("Número de pessoas");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 370, -1, -1));
 
-        jComboBox3.setBackground(new java.awt.Color(239, 239, 239));
-        jComboBox3.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
-        getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 400, 317, -1));
+        jComboNumPessoa.setBackground(new java.awt.Color(239, 239, 239));
+        jComboNumPessoa.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jComboNumPessoa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
+        getContentPane().add(jComboNumPessoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 400, 317, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/basicbg.jpg"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 670));
@@ -158,16 +177,32 @@ public class quartos extends javax.swing.JFrame {
     }//GEN-LAST:event_fecharBtnActionPerformed
 
     private void addQuartoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addQuartoBtnActionPerformed
-     String numQuarto=jTextField1.getText();
-     String tipoQuarto = (String)jComboBox1.getSelectedItem();
-     String cama = (String)jComboBox2.getSelectedItem();
-     String numPessoa=(String)jComboBox3.getSelectedItem();
-     String preco=jTextField2.getText();
+     String numQuarto=jTextNumQuarto.getText();
+     String tipoQuarto = (String)jComboTipoQuarto.getSelectedItem();
+     String cama = (String)jComboCama.getSelectedItem();
+     String numPessoa=(String)jComboNumPessoa.getSelectedItem();
+     String preco=jTextPreco.getText();
      
-    String Query= "insert into quarto values ('"+numQuarto+"','"+tipoQuarto+"','"+cama+"','"+numPessoa+"','"+preco+"','Sem reserva')";
-    InsertUpdateDelete.setData(Query,"Atualizado com sucesso");
+     try{
+         
+        ResultSet rs = Select.getData("select * from quarto where numQuarto = '"+numQuarto+"'");
+        
+        if (rs.next()){
+             JOptionPane.showMessageDialog(null,"Quarto com esse número já existe no sistema." );
+        }
+        else
+        {
+ 
+        String Query= "insert into quarto values ('"+numQuarto+"','"+tipoQuarto+"','"+cama+"','"+numPessoa+"','"+preco+"','Sem reserva')";
+        InsertUpdateDelete.setData(Query,"Atualizado com sucesso");
         setVisible(false);
         new quartos().setVisible(true);
+        }
+                }
+         catch (Exception e)
+        { 
+        JOptionPane.showMessageDialog(null, e);
+        }
     
     }//GEN-LAST:event_addQuartoBtnActionPerformed
 
@@ -190,9 +225,9 @@ public class quartos extends javax.swing.JFrame {
             
     }//GEN-LAST:event_formComponentShown
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void jComboTipoQuartoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboTipoQuartoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_jComboTipoQuartoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,9 +267,9 @@ public class quartos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addQuartoBtn;
     private javax.swing.JButton fecharBtn;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboCama;
+    private javax.swing.JComboBox<String> jComboNumPessoa;
+    private javax.swing.JComboBox<String> jComboTipoQuarto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -244,8 +279,8 @@ public class quartos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextNumQuarto;
+    private javax.swing.JTextField jTextPreco;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }

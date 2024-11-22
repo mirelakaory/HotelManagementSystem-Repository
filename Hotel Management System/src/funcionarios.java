@@ -1,6 +1,9 @@
 
 import java.sql.ResultSet;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import project.InsertUpdateDelete;
 import project.Select;
@@ -17,9 +20,22 @@ import project.Select;
  */
 public class funcionarios extends javax.swing.JFrame {
 
-    /**
-     * Creates new form funcionarios
-     */
+    //getters
+    public JButton getBtnAtualizar()
+    {
+        return BtnAtualizar;
+    }
+    
+    public JTextField getjTextFieldEmail()
+    {
+        return jTextFieldEmail;
+    }
+
+    public JComboBox<String> getJComboBoxFuncao(){
+        return jComboBoxFuncao;
+    }
+
+     
     public funcionarios() {
         initComponents();
     }
@@ -45,18 +61,18 @@ public class funcionarios extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jTextFieldNome = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextFieldEndereco = new javax.swing.JTextField();
+        jTextEndereco = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextFieldTel = new javax.swing.JTextField();
+        jTextTel = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextFieldCpf = new javax.swing.JTextField();
+        jTextCPF = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jComboBoxFuncao = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        BtnAtualizar = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(50, 100));
+        setLocation(new java.awt.Point(70, 120));
         setUndecorated(true);
         setResizable(false);
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -130,24 +146,24 @@ public class funcionarios extends javax.swing.JFrame {
         jLabel5.setText("Endereço");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 300, -1, -1));
 
-        jTextFieldEndereco.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextFieldEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 330, 293, -1));
+        jTextEndereco.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 330, 293, -1));
 
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Telefone");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 380, -1, -1));
 
-        jTextFieldTel.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextFieldTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 410, 293, -1));
+        jTextTel.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 410, 293, -1));
 
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("CPF");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 450, -1, -1));
 
-        jTextFieldCpf.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextFieldCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 490, 293, -1));
+        jTextCPF.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 490, 293, -1));
 
         jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -164,15 +180,15 @@ public class funcionarios extends javax.swing.JFrame {
         });
         getContentPane().add(jComboBoxFuncao, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 570, 301, -1));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
-        jButton1.setText("Atualizar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtnAtualizar.setBackground(new java.awt.Color(204, 204, 204));
+        BtnAtualizar.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
+        BtnAtualizar.setText("Atualizar");
+        BtnAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtnAtualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 621, 130, 50));
+        getContentPane().add(BtnAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 621, 130, 50));
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/basicbg.jpg"))); // NOI18N
@@ -205,9 +221,9 @@ public class funcionarios extends javax.swing.JFrame {
                    jTextFieldNome.setEditable(false);
                    
                    jTextFieldNome.setText(rs.getString(1));
-                   jTextFieldEndereco.setText(rs.getString(6));
-                   jTextFieldTel.setText(rs.getString(10));
-                   jTextFieldCpf.setText(rs.getString(9));
+                   jTextEndereco.setText(rs.getString(6));
+                   jTextTel.setText(rs.getString(10));
+                   jTextCPF.setText(rs.getString(9));
                }
            }
            catch(Exception e)
@@ -239,12 +255,12 @@ public class funcionarios extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formComponentShown
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BtnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAtualizarActionPerformed
       int check=0;
     String nome=jTextFieldNome.getText();
-    String endereco=jTextFieldEndereco.getText();
-    String tel= jTextFieldTel.getText();
-    String cpf=jTextFieldCpf.getText();
+    String endereco=jTextEndereco.getText();
+    String tel= jTextTel.getText();
+    String cpf=jTextCPF.getText();
     String funcao= (String)jComboBoxFuncao.getSelectedItem();
     
     if (tel.equals ("") || cpf.equals (""))
@@ -278,7 +294,7 @@ public class funcionarios extends javax.swing.JFrame {
         
     JOptionPane.showMessageDialog(null,"Senha incorreta");
     
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BtnAtualizarActionPerformed
 
     private void jComboBoxFuncaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxFuncaoActionPerformed
         // TODO add your handling code here:
@@ -320,9 +336,9 @@ public class funcionarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnAtualizar;
     private javax.swing.JButton BuscarBtn;
     private javax.swing.JButton fecharBtn;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBoxFuncao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -335,10 +351,10 @@ public class funcionarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextFieldCpf;
+    private javax.swing.JTextField jTextCPF;
+    private javax.swing.JTextField jTextEndereco;
     private javax.swing.JTextField jTextFieldEmail;
-    private javax.swing.JTextField jTextFieldEndereco;
     private javax.swing.JTextField jTextFieldNome;
-    private javax.swing.JTextField jTextFieldTel;
+    private javax.swing.JTextField jTextTel;
     // End of variables declaration//GEN-END:variables
 }

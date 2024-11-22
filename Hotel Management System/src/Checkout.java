@@ -1,7 +1,10 @@
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import project.*;
 
@@ -11,6 +14,17 @@ import project.*;
  * @author mirela
  */
 public class Checkout extends javax.swing.JFrame {
+    //getters
+    public JButton getCheckoutBtn()
+    {
+        return CheckoutBtn;
+    }
+    public JTextField getjTextNumQuarto()
+    {
+        return jTextNumQuarto;
+    }
+
+
 
     /**
      * Creates new form Checkout
@@ -18,14 +32,14 @@ public class Checkout extends javax.swing.JFrame {
     public Checkout() {
         initComponents();
         
-        jTextFieldNome.setEditable (false);
-        jTextFieldCheckin.setEditable (false);
-        jTextFieldCheckout.setEditable (false);
-        jTextFieldTel.setEditable (false);
-        jTextFieldPreco.setEditable (false);
-        jTextFieldEstadia.setEditable (false);
-        jTextFieldValorFinal.setEditable (false);
-        jTextFieldCpf.setEditable (false);
+        jTextNome.setEditable (false);
+        jTextCheckin.setEditable (false);
+        jTextCheckout.setEditable (false);
+        jTextTel.setEditable (false);
+        jTextPreco.setEditable (false);
+        jTextEstadia.setEditable (false);
+        jTextValorFinal.setEditable (false);
+        jTextCPF.setEditable (false);
               
     }
     
@@ -47,7 +61,7 @@ public class Checkout extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextNumQuarto = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         BuscarBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -56,24 +70,24 @@ public class Checkout extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         Telefone = new javax.swing.JLabel();
-        jTextFieldNome = new javax.swing.JTextField();
-        jTextFieldCheckin = new javax.swing.JTextField();
-        jTextFieldCheckout = new javax.swing.JTextField();
-        jTextFieldTel = new javax.swing.JTextField();
+        jTextNome = new javax.swing.JTextField();
+        jTextCheckin = new javax.swing.JTextField();
+        jTextCheckout = new javax.swing.JTextField();
+        jTextTel = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextFieldPreco = new javax.swing.JTextField();
+        jTextPreco = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextFieldEstadia = new javax.swing.JTextField();
+        jTextEstadia = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextFieldValorFinal = new javax.swing.JTextField();
+        jTextValorFinal = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextFieldCpf = new javax.swing.JTextField();
+        jTextCPF = new javax.swing.JTextField();
         CheckoutBtn = new javax.swing.JButton();
         LimparBtn = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(50, 110));
+        setLocation(new java.awt.Point(70, 120));
         setUndecorated(true);
         setResizable(false);
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -94,8 +108,8 @@ public class Checkout extends javax.swing.JFrame {
         jLabel2.setText("Número do Quarto:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, -1, 20));
 
-        jTextField1.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, 168, -1));
+        jTextNumQuarto.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextNumQuarto, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, 168, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -149,50 +163,50 @@ public class Checkout extends javax.swing.JFrame {
         Telefone.setText("Telefone");
         getContentPane().add(Telefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, -1, -1));
 
-        jTextFieldNome.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextFieldNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 240, -1));
+        jTextNome.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 240, -1));
 
-        jTextFieldCheckin.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextFieldCheckin, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 220, 230, -1));
+        jTextCheckin.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextCheckin, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 220, 230, -1));
 
-        jTextFieldCheckout.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextFieldCheckout, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 330, 230, -1));
+        jTextCheckout.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextCheckout, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 330, 230, -1));
 
-        jTextFieldTel.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextFieldTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 230, -1));
+        jTextTel.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 230, -1));
 
         jLabel6.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Preço da diária");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
 
-        jTextFieldPreco.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextFieldPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 240, -1));
+        jTextPreco.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 240, -1));
 
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Dias de estadia");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, -1, -1));
 
-        jTextFieldEstadia.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextFieldEstadia, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 230, -1));
+        jTextEstadia.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextEstadia, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 230, -1));
 
         jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Valor Final");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 300, -1, -1));
 
-        jTextFieldValorFinal.setBackground(new java.awt.Color(255, 204, 204));
-        jTextFieldValorFinal.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextFieldValorFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 330, 230, -1));
+        jTextValorFinal.setBackground(new java.awt.Color(255, 204, 204));
+        jTextValorFinal.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextValorFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 330, 230, -1));
 
         jLabel9.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("CPF");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 190, -1, -1));
 
-        jTextFieldCpf.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        getContentPane().add(jTextFieldCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 220, 230, -1));
+        jTextCPF.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        getContentPane().add(jTextCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 220, 230, -1));
 
         CheckoutBtn.setBackground(new java.awt.Color(204, 204, 204));
         CheckoutBtn.setFont(new java.awt.Font("Lucida Grande", 1, 16)); // NOI18N
@@ -214,7 +228,7 @@ public class Checkout extends javax.swing.JFrame {
         });
         getContentPane().add(LimparBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, -1, -1));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/basicbg.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/basicbg.jpg"))); // NOI18N
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 690));
 
         pack();
@@ -243,22 +257,22 @@ public class Checkout extends javax.swing.JFrame {
     }//GEN-LAST:event_formComponentShown
 
     private void BuscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarBtnActionPerformed
-        String numQuarto = jTextField1.getText();
+        String numQuarto = jTextNumQuarto.getText();
         
         try 
         {   
             ResultSet rs = Select.getData("select * from checkin where numQuarto = '"+numQuarto+"' and dataCheckout is NULL");
             if(rs.next())
             {
-                jTextField1.setEditable(false);
-                jTextFieldNome.setText(rs.getString(1));
-                jTextFieldCheckin.setText(rs.getString(14));
-                jTextFieldTel.setText(rs.getString(3));
-                jTextFieldPreco.setText(rs.getString(11));
+                jTextNumQuarto.setEditable(false);
+                jTextNome.setText(rs.getString(1));
+                jTextCheckin.setText(rs.getString(14));
+                jTextTel.setText(rs.getString(3));
+                jTextPreco.setText(rs.getString(11));
                 
                 SimpleDateFormat myFormat = new SimpleDateFormat("yyyy/MM/dd");
                 Calendar cal = Calendar.getInstance();
-                jTextFieldCheckout.setText(myFormat.format(cal.getTime()));
+                jTextCheckout.setText(myFormat.format(cal.getTime()));
                 String dateBeforeString=rs.getString(14);
                 java.util.Date dateBefore = myFormat.parse(dateBeforeString);
                 String dateAfterString=myFormat.format(cal.getTime());
@@ -267,12 +281,12 @@ public class Checkout extends javax.swing.JFrame {
                 int numEstadia =(int) (difference/(1000*60*60*24));
                 if (numEstadia ==0)
                     numEstadia =1;
-                jTextFieldEstadia.setText(String.valueOf(numEstadia));
-                float preco = Float.parseFloat(jTextFieldPreco.getText());
+                jTextEstadia.setText(String.valueOf(numEstadia));
+                float preco = Float.parseFloat(jTextPreco.getText());
                 
-                jTextFieldValorFinal.setText(String.valueOf(numEstadia*preco));
+                jTextValorFinal.setText(String.valueOf(numEstadia*preco));
                 
-                jTextFieldCpf.setText(rs.getString(4));
+                jTextCPF.setText(rs.getString(4));
                 
                 tipoQuarto = rs.getString(8);
                 cama= rs.getString(9);
@@ -298,14 +312,14 @@ public class Checkout extends javax.swing.JFrame {
     }//GEN-LAST:event_LimparBtnActionPerformed
 
     private void CheckoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckoutBtnActionPerformed
-        String nome= jTextFieldNome.getText();
-        String tel = jTextFieldTel.getText();
-        String cpf = jTextFieldCpf.getText();
+        String nome= jTextNome.getText();
+        String tel = jTextTel.getText();
+        String cpf = jTextCPF.getText();
         
-        String checkout = jTextFieldCheckout.getText();
-        String numEstadia = jTextFieldEstadia.getText();
-        String valorFinal = jTextFieldValorFinal.getText();
-        numQuarto = jTextField1.getText();
+        String checkout = jTextCheckout.getText();
+        String numEstadia = jTextEstadia.getText();
+        String valorFinal = jTextValorFinal.getText();
+        numQuarto = jTextNumQuarto.getText();
         
         Query = "update checkin set estadia = '"+numEstadia+"', valorTotal = '"+valorFinal+"', dataCheckout = '"+checkout+"' where cpfHospede = '"+cpf+"'";
         InsertUpdateDelete.setData(Query,"");
@@ -373,14 +387,14 @@ public class Checkout extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextFieldCheckin;
-    private javax.swing.JTextField jTextFieldCheckout;
-    private javax.swing.JTextField jTextFieldCpf;
-    private javax.swing.JTextField jTextFieldEstadia;
-    private javax.swing.JTextField jTextFieldNome;
-    private javax.swing.JTextField jTextFieldPreco;
-    private javax.swing.JTextField jTextFieldTel;
-    private javax.swing.JTextField jTextFieldValorFinal;
+    private javax.swing.JTextField jTextCPF;
+    private javax.swing.JTextField jTextCheckin;
+    private javax.swing.JTextField jTextCheckout;
+    private javax.swing.JTextField jTextEstadia;
+    private javax.swing.JTextField jTextNome;
+    private javax.swing.JTextField jTextNumQuarto;
+    private javax.swing.JTextField jTextPreco;
+    private javax.swing.JTextField jTextTel;
+    private javax.swing.JTextField jTextValorFinal;
     // End of variables declaration//GEN-END:variables
 }
